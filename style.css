@@ -3628,12 +3628,12 @@ ul {
 }
 
 .profile-header .options [data-action="edit-profile"] {
-  background-color: $brand_color;
+  background-color: $primary_color;
   border: 0;
-  color: $brand_text_color;
+  color: #ffffff;
   line-height: normal;
   padding: 8px 20px;
-  outline-color: $brand_color;
+  outline-color: $primary_color;
 }
 
 .profile-header .description {
