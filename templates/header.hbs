@@ -11,8 +11,15 @@
       </svg>
     </button>
     <nav class="user-nav" id="user-nav">
+
       {{link 'community'}}
       {{link 'new_request' class='submit-a-request'}}
+        {{#if signed_in}}
+        {{else}}
+            <a class="register-btn" href="https://easymailing.cloud/signup">Regístrate gratis</a>
+        {{/if}}
+
+
     </nav>
     {{user_info}}
   </div>

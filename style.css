@@ -172,8 +172,8 @@ ul {
 
 /***** Buttons *****/
 .button, [role="button"] {
-  /*border: 1px solid $text_color;*/
-  border: 1px solid $primary_color;
+  border: 1px solid $text_color;
+  /*border: 1px solid $primary_color;*/
   border-radius: 4px;
   color: $text_color;
   cursor: pointer;
@@ -488,7 +488,7 @@ ul {
 
 .nav-wrapper a {
   border: 0;
-  color: $link_color;
+  color: #ffffff;
   display: none;
   font-size: 14px;
   padding: 0 20px 0 0;
@@ -507,7 +507,7 @@ ul {
 
 .nav-wrapper a:hover, .nav-wrapper a:focus, .nav-wrapper a:active {
   background-color: transparent;
-  color: $link_color;
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -523,6 +523,15 @@ ul {
   margin-right: 10px;
   padding: 0;
   width: auto;
+}
+
+.register-btn {
+  background: #7673F6;
+  padding: 8px !important;
+  margin-right: 20px;
+  border-radius: 3px;
+  color: #ffffff;
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -1540,7 +1549,7 @@ ul {
 
 .article-vote:focus, .article-vote:active {
   background-color: transparent;
-  color: $primary_color;
+  color: $text_color;
 }
 
 .article-vote:hover {
@@ -1548,7 +1557,7 @@ ul {
 }
 
 .article-vote:hover::before, .article-vote:hover::after, .article-vote[aria-selected="true"]::before, .article-vote[aria-selected="true"]::after {
-  color: #ffffff;
+  color: $text_color;
 }
 
 .article-vote-up::before {
@@ -4369,6 +4378,8 @@ html[lang|="zh"] .search-results-description em {
   font-style: normal;
   background: yellow;
 }
+
+
 
 /** DEFAULT TABLES */
 
