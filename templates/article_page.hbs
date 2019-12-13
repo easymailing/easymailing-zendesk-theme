@@ -1,10 +1,12 @@
-<div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-    {{search scoped=settings.scoped_kb_search submit=false}}
-  </nav>
 
+<div class="container-fullwidth gray">
+    <nav class="sub-nav">
+        {{breadcrumbs}}
+        {{search scoped=settings.scoped_kb_search submit=false}}
+    </nav>
+</div>
+
+<div class="container">
   <div class="article-container" id="article-container">
     <aside class="article-sidebar">
       {{#if settings.show_articles_in_section}}

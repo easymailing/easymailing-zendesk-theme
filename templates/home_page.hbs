@@ -1,6 +1,8 @@
 <section class="section hero">
+
   <div class="hero-inner">
-    {{search submit=false instant=settings.instant_search class='search search-full'}}
+      <h2 class="hero-title">¡Hola! ¿En qué te podemos ayudar?</h2>
+    {{search submit=false instant=true class='search search-full'}}
   </div>
 </section>
 
@@ -10,12 +12,39 @@
       <ul class="blocks-list">
         {{#each categories}}
           {{#if ../has_multiple_categories}}
+          {{#isnt name 'Administración'}}
             <li class="blocks-item">
               <a href='{{url}}' class="blocks-item-link">
+
+                {{#is name 'Cuenta y configuración'}}
+                <img src="{{asset 'ico-cuenta.svg'}}" />
+                {{/is}}
+
+                {{#is name 'Campañas de email'}}
+                <img src="{{asset 'ico-campanas.svg'}}" />
+                {{/is}}
+
+                {{#is name 'Editor de plantillas'}}
+                <img src="{{asset 'ico-editor.svg'}}" />
+                {{/is}}
+
+                {{#is name 'Gestión de contactos'}}
+                <img src="{{asset 'ico-gestion-contactos.svg'}}" />
+                {{/is}}
+
+                {{#is name 'RGPD'}}
+                <img src="{{asset 'ico-rgpd.svg'}}" />
+                {{/is}}
+
+                {{#is name 'API e integraciones'}}
+                <img src="{{asset 'ico-api.svg'}}" />
+                {{/is}}
+
                 <h4 class="blocks-item-title">{{name}}</h4>
                 <p class="blocks-item-description">{{excerpt description}}</p>
               </a>
             </li>
+          {{/isnt}}
           {{else}}
             {{#each sections}}
               <li class="blocks-item">
