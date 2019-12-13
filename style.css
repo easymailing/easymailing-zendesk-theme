@@ -911,6 +911,7 @@ ul {
   max-width: 100%;
   text-align: center;
   background-color: #ffffff;
+  transition: .2s;
 }
 
 @media (min-width: 768px) {
@@ -921,6 +922,8 @@ ul {
 
 .blocks-item:hover, .blocks-item:focus, .blocks-item:active {
   box-shadow: 0 0 20px rgba(33,33,33,.2);
+  transform: translate(-5px, -5px);
+
 }
 
 .blocks-item:hover *, .blocks-item:focus *, .blocks-item:active * {
