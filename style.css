@@ -505,6 +505,8 @@ ul {
   padding: 0 0 0 20px;
 }
 
+
+
 .nav-wrapper a:hover, .nav-wrapper a:focus, .nav-wrapper a:active {
   background-color: transparent;
   color: #ffffff;
@@ -525,13 +527,17 @@ ul {
   width: auto;
 }
 
-.register-btn {
-  background: #7673F6;
+.register-btn, .register-btn:focus, .register-btn:visited {
+  background: $primary_color;
   padding: 8px !important;
   margin-right: 20px;
   border-radius: 3px;
   color: #ffffff;
   opacity: 1;
+}
+.register-btn:hover, .register-btn:active {
+  background: #534ff4 !important;
+  text-decoration: none !important;
 }
 
 @media (min-width: 768px) {
