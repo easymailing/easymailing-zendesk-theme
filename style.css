@@ -774,6 +774,10 @@ ul {
   color: $text_color;
 }
 
+.breadcrumbs li a {
+  color: $text_color;
+}
+
 /***** Search field *****/
 .search {
   position: relative;
