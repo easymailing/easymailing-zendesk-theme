@@ -1942,6 +1942,10 @@ ul {
   flex: 1 0 auto;
 }
 
+.comment-meta a {
+  color: $text_color;
+}
+
 .comment-labels {
   flex-basis: 100%;
 }
@@ -2985,7 +2989,7 @@ ul {
 
 .my-activities-table th:first-child,
 .my-activities-table td:first-child {
-  padding-left: 0;
+  /*padding-left: 0;*/
 }
 
 @media (min-width: 1024px) {
