@@ -1863,7 +1863,7 @@ ul {
 }
 
 .comment-callout {
-  color: lighten($text_color, 20%);
+  color: $text_color;
   display: inline-block;
   font-weight: 300;
   font-size: 13px;
@@ -1871,7 +1871,7 @@ ul {
 }
 
 .comment-callout a {
-  color: $brand_color;
+  color: $link_color;
 }
 
 .comment-sorter {
