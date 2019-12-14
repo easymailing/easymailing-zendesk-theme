@@ -720,7 +720,12 @@ ul {
 .footer-language-selector {
   color: #ffffff;
   display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
   font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #858CA3;
 }
 
 .footer-legal {
@@ -4481,6 +4486,15 @@ ul {
 html[lang|="zh"] .search-results-description em {
   font-style: normal;
   background: yellow;
+}
+
+/** INSTANT SEARCH */
+zd-autocomplete-title-multibrand {
+  color: $link_color !important;
+}
+
+zd-autocomplete-breadcrumbs-multibrand {
+
 }
 
 /** HELPERS */
