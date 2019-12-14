@@ -2690,7 +2690,7 @@ ul {
 }
 
 .post-comment-count .icon-comments {
-  color: $brand_color;
+  color: $text_color;
   content: "\1F4AC";
   display: inline-block;
   font-size: 18px;
