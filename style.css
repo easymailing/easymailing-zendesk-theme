@@ -771,7 +771,7 @@ ul {
 }
 
 .breadcrumbs li a:visited {
-  color: $link_color;
+  color: $text_color;
 }
 
 /***** Search field *****/
