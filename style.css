@@ -718,7 +718,7 @@ ul {
 }
 
 .footer-language-selector {
-  color: lighten($text_color, 20%);
+  color: #ffffff;
   display: inline-block;
   font-weight: 300;
 }
