@@ -203,7 +203,7 @@ ul {
 .button:hover, .button:active, .button:focus, .button[aria-selected="true"], [role="button"]:hover, [role="button"]:active, [role="button"]:focus, [role="button"][aria-selected="true"] {
   background-color: $primary_color;
   border: 1px solid $primary_color;
-  /*color: #ffffff;*/
+  color: #ffffff;
   text-decoration: none;
 
 }
