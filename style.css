@@ -1535,12 +1535,13 @@ ul {
 }
 
 .article-comment-count .icon-comments {
-  color: $brand_color;
+  color: $text_color_gray;
   content: "\1F4AC";
   display: inline-block;
   font-size: 18px;
   padding: 5px;
 }
+
 
 .article-sidebar {
   border-bottom: 1px solid #ddd;
@@ -4433,7 +4434,7 @@ ul {
 }
 
 .search-result-votes::before, .search-result-meta-count::before {
-  color: $brand_color;
+  color: $text_color_gray;
 }
 
 [dir="ltr"] .search-result-votes, [dir="ltr"] .search-result-meta-count {
