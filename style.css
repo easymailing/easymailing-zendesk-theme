@@ -245,7 +245,7 @@ ul {
 }
 
 .button-secondary {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   border: 1px solid #ddd;
   background-color: transparent;
 }
@@ -271,7 +271,7 @@ ul {
 
 .table th,
 .table th a {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-size: 13px;
   font-weight: 300;
   text-align: left;
@@ -390,12 +390,12 @@ ul {
 }
 
 .form-field .optional {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   margin-left: 4px;
 }
 
 .form-field p {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-size: 12px;
   margin: 5px 0;
 }
@@ -412,7 +412,7 @@ ul {
 }
 
 .form footer a {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   cursor: pointer;
   margin-right: 15px;
 }
@@ -698,7 +698,7 @@ ul {
 }
 
 .footer a {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
 }
 
 .footer-inner {
@@ -756,7 +756,7 @@ ul {
 }
 
 .breadcrumbs li {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   display: inline;
   font-weight: 300;
   font-size: 13px;
@@ -1193,7 +1193,7 @@ ul {
 }
 
 .recent-activity-item-time, .recent-activity-item-comment {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   display: inline-block;
   font-size: 13px;
   font-weight: 300;
@@ -1503,7 +1503,7 @@ ul {
 
 .article-body blockquote {
   border-left: 1px solid #ddd;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-style: italic;
   padding: 0 15px;
 }
@@ -1526,7 +1526,7 @@ ul {
 }
 
 .article-comment-count {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
 }
 
@@ -1749,7 +1749,7 @@ ul {
 }
 
 .upload-dropzone span {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
 }
 
 /***** Social share links *****/
@@ -1880,7 +1880,7 @@ ul {
 }
 
 .comment-sorter .dropdown-toggle {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
   font-size: 13px;
 }
@@ -2082,7 +2082,7 @@ ul {
 
 .comment-body blockquote {
   border-left: 1px solid #ddd;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-style: italic;
   padding: 0 15px;
 }
@@ -2108,7 +2108,7 @@ ul {
 }
 
 .vote-sum {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   display: block;
   margin: 3px 0;
 }
@@ -2124,7 +2124,7 @@ ul {
 }
 
 .vote-up::before, .vote-down::before {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-size: 24px;
 }
 
@@ -2164,7 +2164,7 @@ ul {
 .actions .dropdown-toggle::before {
   background-color: transparent;
   border-radius: 50%;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   content: "\2699";
   display: block;
   font-size: 13px;
@@ -2379,7 +2379,7 @@ ul {
 }
 
 .striped-list-count {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
   font-size: 13px;
   justify-content: flex-start;
@@ -2471,7 +2471,7 @@ ul {
 
 .status-label-not-planned, .status-label-closed {
   background-color: #e9ebed;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
 }
 
 .status-label-pending {
@@ -2664,7 +2664,7 @@ ul {
 
 .post-body blockquote {
   border-left: 1px solid #ddd;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-style: italic;
   padding: 0 15px;
 }
@@ -2677,7 +2677,7 @@ ul {
 }
 
 .post-comment-count {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
 }
 
@@ -3213,7 +3213,7 @@ ul {
 
 /* Contributions table */
 .contributions-table td:last-child {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-size: 13px;
   font-weight: 300;
 }
@@ -3227,7 +3227,7 @@ ul {
 }
 
 .no-activities {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
 }
 
 /***** Request *****/
@@ -3295,7 +3295,7 @@ ul {
 .request-main .comment-show-container {
   border-radius: 2px;
   border: 1px solid #ddd;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   text-align: inherit;
   padding: 8px 25px;
   width: 100%;
@@ -3407,7 +3407,7 @@ ul {
 }
 
 .request-details dt {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
   width: 40%;
 }
@@ -3472,7 +3472,7 @@ ul {
 
 .pagination a, .pagination span {
   font-size: 16px;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   padding: 10px 12px;
 }
 
@@ -3518,7 +3518,7 @@ ul {
 }
 
 .meta-data {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-size: 13px;
   font-weight: 300;
 }
@@ -3766,7 +3766,7 @@ ul {
 }
 
 .profile-stats .stat-label {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
   flex: 0 0 100px;
   margin-right: 10px;
@@ -3930,7 +3930,7 @@ ul {
 .profile-section-description {
   flex-basis: 100%;
   padding: 10px 0;
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   font-weight: 300;
   font-size: 13px;
   white-space: nowrap;
@@ -4420,7 +4420,7 @@ ul {
 }
 
 .search-result-votes, .search-result-meta-count {
-  color: lighten($text_color, 20%);
+  color: $text_color_gray;
   display: inline-block;
   font-size: 13px;
   font-weight: 300;
@@ -4546,7 +4546,7 @@ table td .gray {
 
 table th,
 table th a {
-    color: lighten($text_color, 20%);
+    color: $text_color_gray;
     font-size: 13px;
     font-weight: 300;
     text-align: left;
