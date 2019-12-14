@@ -202,6 +202,8 @@ ul {
 
 .button:hover, .button:active, .button:focus, .button[aria-selected="true"], [role="button"]:hover, [role="button"]:active, [role="button"]:focus, [role="button"][aria-selected="true"] {
   background-color: $primary_color;
+  border: 1px solid $primary_color;
+  /*color: #ffffff;*/
   text-decoration: none;
 
 }
@@ -691,7 +693,8 @@ ul {
 .footer {
   border-top: 1px solid #ddd;
   margin-top: 60px;
-  padding: 30px 0;
+  padding: 50px 0;
+  background-color: #000C36;
 }
 
 .footer a {
@@ -704,6 +707,7 @@ ul {
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
+
 }
 
 @media (min-width: 1160px) {
@@ -717,6 +721,21 @@ ul {
   color: lighten($text_color, 20%);
   display: inline-block;
   font-weight: 300;
+}
+
+.footer-legal {
+  color: #858CA3;
+  font-size: 12px;
+  font-family: $text_font;
+  font-weight: 200;
+  padding-top: 15px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  border-top: 1px solid #858CA3;
+}
+
+.footer-legal .share a::before {
+  color: #858CA3;
 }
 
 /***** Breadcrumbs *****/
@@ -1590,9 +1609,11 @@ ul {
   /* Yes/No label*/
 }
 
-.article-vote:focus, .article-vote:active {
+/*.article-vote:focus, .article-vote:active {*/
+.article-vote:active {
   background-color: transparent;
   color: $text_color;
+  border-color: 1px solid $text_color;
 }
 
 .article-vote:hover {
@@ -1600,7 +1621,7 @@ ul {
 }
 
 .article-vote:hover::before, .article-vote:hover::after, .article-vote[aria-selected="true"]::before, .article-vote[aria-selected="true"]::after {
-  color: $text_color;
+  color: #ffffff;
 }
 
 .article-vote-up::before {
@@ -1646,14 +1667,14 @@ ul {
 }
 
 .article-unsubscribe {
-  background-color: $brand_color;
-  color: $brand_text_color;
+  background-color: $primary_color;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .article-unsubscribe:hover {
-  background-color: darken($brand_color, 20%);
-  border-color: darken($brand_color, 20%);
+  background-color: darken($primary_color, 20%);
+  border-color: darken($primary_color, 20%);
 }
 
 .sidenav-title {
@@ -1741,7 +1762,7 @@ ul {
 }
 
 .share a::before {
-  color: lighten($text_color, 20%);
+  color: $primary_color;
   display: block;
   font-size: 23px;
   text-align: center;
@@ -1753,7 +1774,44 @@ ul {
 }
 
 .share a:hover::before {
-  color: $brand_color;
+  color: #4c4ba6;
+}
+.social-links {
+  padding: 0;
+  white-space: nowrap;
+}
+
+.social-links li, .social-links a {
+  display: inline-block;
+}
+
+.social-links a {
+  border-radius: 50%;
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden;
+  width: 25px;
+}
+
+.social-links a::before {
+  font-family: "copenhagen-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  line-height: 1em;
+  color: #858CA3;
+  display: block;
+  font-size: 23px;
+  text-align: center;
+  width: 100%;
+}
+
+.social-links a:hover {
+  text-decoration: none;
+}
+
+.social-links a:hover::before {
+  color: #4c4ba6;
 }
 
 .share-twitter::before {
@@ -1767,6 +1825,9 @@ ul {
 .share-linkedin::before {
   content: "\e900";
 }
+
+
+
 
 /***** Comments *****/
 /* Styles comments inside articles, posts and requests */
@@ -4422,6 +4483,23 @@ html[lang|="zh"] .search-results-description em {
   background: yellow;
 }
 
+/** HELPERS */
+
+.divider-20 {
+  height: 20px;
+}
+
+.divider-40 {
+  height: 40px;
+}
+
+.divider-60 {
+  height: 60px;
+}
+
+.divider-80 {
+  height: 80px;
+}
 
 
 /** DEFAULT TABLES */

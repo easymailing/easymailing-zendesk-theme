@@ -1,26 +1,39 @@
+<div class="divider-20"></div>
 <footer class="footer">
-  <div class="footer-inner">
-    {{#link 'help_center'}}{{help_center.name}}{{/link}}
+    <div class="footer-inner">
+        <a href="https://easymailing.cloud">
+        <img src="{{asset 'logo-easymailing.svg'}}" alt="Easymailing">
+        </a>
 
-    <div class="footer-language-selector">
-      {{#if alternative_locales}}
-        <div class="dropdown language-selector">
-          <button class="dropdown-toggle" aria-haspopup="true">
-            {{current_locale.name}}
-          </button>
-          <span class="dropdown-menu dropdown-menu-end" role="menu">
-            {{#each alternative_locales}}
-              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
-                {{name}}
-              </a>
-            {{/each}}
-          </span>
+        <div class="footer-language-selector">
+            {{#if alternative_locales}}
+                <div class="dropdown language-selector">
+                    <button class="dropdown-toggle" aria-haspopup="true">
+                        {{current_locale.name}}
+                    </button>
+                    <span class="dropdown-menu dropdown-menu-end" role="menu">
+                        {{#each alternative_locales}}
+                            <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
+                                {{name}}
+                            </a>
+                        {{/each}}
+                    </span>
+                </div>
+            {{/if}}
         </div>
-      {{/if}}
     </div>
-  </div>
+    <div class="footer-inner footer-legal">
+        <div>{{dc 'theme_legal_footer'}}</div>
+        <div>
+            <div class="article-share">
+                <ul class="social-links">
+                    <li><a target="_blank" href="https://www.facebook.com/easymailing.es" title="Facebook" class="share-facebook">Facebook</a></li>
+                    <li><a target="_blank" href="https://twitter.com/easymailing_com" title="Twitter" class="share-twitter">Twitter</a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/company/easymailing" title="LinkedIn" class="share-linkedin">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
 </footer>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
