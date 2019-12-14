@@ -503,6 +503,15 @@ ul {
   margin: 20px;
 }
 
+.user-nav .sign-in {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .user-nav .sign-in {
+    display: none;
+  }
+}
+
 .nav-wrapper a {
   border: 0;
   color: $text_color;
@@ -541,13 +550,13 @@ ul {
   border: 0;
   color: #ffffff;
   display: inline-block;
-  margin-right: 10px;
+  margin: 0;
   padding: 0;
   width: auto;
 }
 
 .register-btn, .register-btn:focus, .register-btn:visited {
-  background: $primary_color;
+  background: #ffffff;
   padding: 8px !important;
   text-align: center;
   margin-right: 20px;
@@ -558,6 +567,12 @@ ul {
 .register-btn:hover, .register-btn:active {
   background: #534ff4 !important;
   text-decoration: none !important;
+}
+
+@media (min-width: 768px) {
+  .register-btn, .register-btn:focus, .register-btn:visited {
+    background: $primary_color;
+  }
 }
 
 .submit-a-request {
@@ -582,8 +597,8 @@ ul {
 
 .nav-wrapper .menu-button .icon-menu {
   vertical-align: middle;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   margin-left: 10px;
 
 }
@@ -614,15 +629,16 @@ ul {
 }
 
 .user-info > [role="button"] {
-  /*border: 0;*/
+  border: 0;
   color: $link_color;
   min-width: 0;
   padding: 0;
   white-space: nowrap;
 }
 
-.user-info > [role="button"]:hover, .user-info > [role="button"]:focus {
+.user-info > [role="button"]:hover, .user-info > [role="button"]:focus, .user-info > [role="button"]:visited {
   color: $link_color;
+  border: 0;
   background-color: transparent;
 }
 
@@ -4507,6 +4523,14 @@ zd-autocomplete-breadcrumbs-multibrand {
 }
 
 /** HELPERS */
+
+.link-white {
+  text-decoration: none;
+  color: #ffffff;
+}
+.link-white:hover {
+  text-decoration: none;
+}
 
 .divider-20 {
   height: 20px;
