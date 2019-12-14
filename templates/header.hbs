@@ -3,6 +3,8 @@
     {{#link 'help_center'}}
       <img src="{{asset 'logo-easymailing.svg'}}" alt="{{t 'home_page' name=help_center.name}}">
     {{/link}}
+      <div class="vertical-separator"></div>
+      <div class="header-title">{{dc 'theme_help'}}</div>
   </div>
   <div class="nav-wrapper">
     <button class="menu-button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}">
@@ -11,16 +13,14 @@
       </svg>
     </button>
     <nav class="user-nav" id="user-nav">
-
-      {{link 'community'}}
-      {{link 'new_request' class='submit-a-request'}}
+        {{link 'community'}}
+        {{link 'new_request' class='submit-a-request'}}
         {{#if signed_in}}
         {{else}}
-            <a class="register-btn" href="https://easymailing.cloud/signup">Regístrate gratis</a>
+            <a class="register-btn" href="https://easymailing.cloud/signup">{{dc 'theme_register'}}</a>
         {{/if}}
-
-
+        {{user_info}}
     </nav>
-    {{user_info}}
+
   </div>
 </header>
