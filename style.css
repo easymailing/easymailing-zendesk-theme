@@ -209,8 +209,8 @@ ul {
 }
 
 .button[aria-selected="true"]:hover, .button[aria-selected="true"]:focus, .button[aria-selected="true"]:active, [role="button"][aria-selected="true"]:hover, [role="button"][aria-selected="true"]:focus, [role="button"][aria-selected="true"]:active {
-  background-color: darken($primary_color, 20%);
-  border-color: darken($primary_color, 20%);
+  background-color: darken($primary_color, 10%);
+  border-color: darken($primary_color, 10%);
 }
 
 .button[data-disabled], [role="button"][data-disabled] {
