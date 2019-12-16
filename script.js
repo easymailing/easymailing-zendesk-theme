@@ -219,15 +219,12 @@ document.addEventListener('DOMContentLoaded', function () {
 // CUSTOM JS ////////////////////////////////////////
 
 
-
-
 $(document).ready(function () {
 
     function scrollToAnchor(dest) {
         $('html, body').animate({
             scrollTop: $(dest).offset().top - 100
-        }, 1500, 'swing');
-
+        }, 1000, 'swing');
     }
 
     $('a[href^="#"]').on('click', function(e) {
@@ -237,19 +234,4 @@ $(document).ready(function () {
 
     });
 
-    function scrollOnPageLoad() {
-        // to top right away
-        if (window.location.hash) scroll(0, 0);
-        // void some browsers issue
-        setTimeout(scroll(0, 0), 1);
-        var hashLink = window.location.hash;
-        if ($(hashLink).length) {
-            $(function () {
-
-                scrollToAnchor(window.location.hash);
-            });
-        }
-    }
-
-    scrollOnPageLoad();
 });
