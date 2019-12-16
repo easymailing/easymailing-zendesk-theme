@@ -1402,8 +1402,8 @@ ul {
 
 @media (min-width: 1024px) {
   .article {
-    flex: 1 0 66%;
-    max-width: 66%;
+    flex: 1 0 73%;
+    max-width: 73%;
     min-width: 640px;
     padding: 0 30px;
   }
@@ -1626,7 +1626,7 @@ ul {
 @media (min-width: 1024px) {
   .article-sidebar {
     border: 0;
-    flex: 0 0 17%;
+    flex: 0 0 27%;
     height: auto;
   }
 }
@@ -1775,7 +1775,7 @@ ul {
 }
 
 .sidenav-item.current-article, .sidenav-item:hover {
-  background-color: rgba(230, 233, 245, .6);
+  background-color: rgba(248, 250, 253, 1);
   /*color: $brand_text_color;*/
   text-decoration: none;
 }
@@ -4605,6 +4605,13 @@ zd-autocomplete-breadcrumbs-multibrand {
   height: 80px;
 }
 
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
 
 /** DEFAULT TABLES */
 
@@ -4621,7 +4628,7 @@ table td {
 }
 
 table td.gray {
-    background-color: rgba(230, 233, 245, .6);
+    background-color: rgba(248, 250, 253, 1);
 }
 
 @media (min-width: 768px) {
