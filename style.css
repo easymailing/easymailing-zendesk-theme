@@ -1474,25 +1474,53 @@ ul {
 }
 
 .article-body ul, .article-body ol {
-  padding-left: 20px;
-  list-style-position: outside;
-  margin: 20px 0 20px 20px;
-}
-
-[dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol {
-  padding-right: 20px;
+  list-style: none;
   padding-left: 0;
-  margin-left: 0;
-  margin-right: 20px;
+  padding-top: 1.5rem;
 }
 
-.article-body ul > ul, .article-body ol > ol, .article-body ol > ul, .article-body ul > ol, .article-body li > ul, .article-body li > ol {
-  margin: 0;
+.article-body ul li {
+  padding: 0 0 1.6rem 2rem;
+  position: relative;
 }
 
-.article-body ul {
-  list-style-type: disc;
+.article-body ul li:before {
+  font-family: initial;
+  width: 5px;
+  height: 5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: .75rem;
+  background-color: #000c36;
+  display: inline-block;
 }
+
+/*.article-body ul, .article-body ol {*/
+  /*padding-left: 20px;*/
+  /*list-style-position: outside;*/
+  /*margin: 20px 0 20px 20px;*/
+/*}*/
+
+/*[dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol {*/
+  /*padding-right: 20px;*/
+  /*padding-left: 0;*/
+  /*margin-left: 0;*/
+  /*margin-right: 20px;*/
+/*}*/
+
+/*.article-body ul > ul, .article-body ol > ol, .article-body ol > ul, .article-body ul > ol, .article-body li > ul, .article-body li > ol {*/
+  /*margin: 0;*/
+/*}*/
+
+/*.article-body ul {*/
+  /*list-style-type: disc;*/
+/*}*/
 
 .article-body a:visited {
   color: darken($link_color, 20%);
@@ -4610,27 +4638,30 @@ table tr {
 }
 
 .alert-info {
-    border: 1px solid #1A7DD9;
-    background-color: #E8FAFF;
-    color: #1A7DD9;
+    border-left: 4px solid #75bedb;
+    background-color: #e6f4f9;
+    color: $text_color;
 }
-
 .alert-warning {
-    border: 1px solid #8f882c;
-    background-color: lighten(#c9aa0a, 40%);
-    color: #8f882c;
+    border-left: 4px solid #f5d78e;
+    background-color: #fff8e0;
+    color: $text_color;
 }
 
 /** NUMBERS*/
 
 .number {
     margin-right: 10px;
-    border-radius: 4px;
-    padding: 5px;
-    width: 40px;
+    border-radius: 30px;
+    padding: 2px;
+    width: 27px;
     display: inline-block;
     text-align: center;
+    font-size: 14px;
     background-color: $brand_color;
 
 }
+
+
+
 
