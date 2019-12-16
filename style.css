@@ -1013,7 +1013,7 @@ ul {
 
 .blocks-item:hover, .blocks-item:focus, .blocks-item:active {
   box-shadow: 0 0 20px rgba(33,33,33,.2);
-  transform: translate(-5px, -5px);
+  transform: translate(0, -5px);
 
 }
 
