@@ -1775,7 +1775,7 @@ ul {
 }
 
 .sidenav-item.current-article, .sidenav-item:hover {
-  background-color: rgba(248, 250, 253, 1);
+  background-color: #D5D9E8;
   /*color: $brand_text_color;*/
   text-decoration: none;
 }
