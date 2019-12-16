@@ -4632,6 +4632,10 @@ table td.gray {
   background-color: rgba(248, 250, 253, 1);
 }
 
+table td.nowrap {
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   table {
     table-layout: auto;
