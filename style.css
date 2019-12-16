@@ -4713,6 +4713,17 @@ table.no-border tr {
   margin-top: 1rem;
 }
 
+/** INDICES de CONTENIDO */
+
+.content-index {
+  border: 1px solid #D5D9E8;
+  background-color: #F8FAFD;
+  padding: 1rem;
+}
+.content-index p {
+  margin: 0;
+}
+
 
 
 
