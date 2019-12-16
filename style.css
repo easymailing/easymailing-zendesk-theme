@@ -1551,7 +1551,7 @@ ul {
 /*}*/
 
 .article-body a:visited {
-  color: darken($link_color, 20%);
+  color: $link_color;
 }
 
 .article-body code {
