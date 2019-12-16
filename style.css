@@ -4650,6 +4650,15 @@ table tr {
     }
 }
 
+.no-border table {
+  border: 0;
+}
+
+.no-border table td {
+  border-right: 0;
+}
+
+
 /** ALERTS */
 
 .alert {
