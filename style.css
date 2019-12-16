@@ -4679,6 +4679,11 @@ table.no-border tr {
   border-bottom: 0;
 }
 
+.article-body table img {
+  height: auto;
+  max-width: initial;
+}
+
 
 /** ALERTS */
 
