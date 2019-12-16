@@ -1312,6 +1312,7 @@ ul {
   padding: 15px 0;
 }
 
+
 .article-list-item {
   font-size: 16px;
   padding: 15px 0;
@@ -1387,13 +1388,16 @@ ul {
 }
 
 /***** Article *****/
+
 .article {
-  /*
-  * The article grid is defined this way to optimize readability:
-  * Sidebar | Content | Free space
-  * 17%     | 66%     | 17%
-  */
+  border-left: 0;
   flex: 1 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .article {
+    border-left: 1px solid #D5D9E8;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1490,10 +1494,11 @@ ul {
   list-style: none;
   padding-left: 0;
   padding-top: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .article-body ul li {
-  padding: 0 0 1.6rem 2rem;
+  padding: 0 0 .6rem 2rem;
   position: relative;
 }
 
@@ -1750,10 +1755,11 @@ ul {
 }
 
 .sidenav-item {
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   color: $text_color;
+  font-size: 16px;
   display: block;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 10px;
   padding: 10px;
 }
