@@ -541,6 +541,12 @@ ul {
   text-decoration: none;
 }
 
+.nav-wrapper .button:hover, .nav-wrapper .button:active, .nav-wrapper .button:focus, .nav-wrapper .button[aria-selected="true"], .nav-wrapper [role="button"]:hover, .nav-wrapper [role="button"]:active, .nav-wrapper [role="button"]:focus, .nav-wrapper [role="button"][aria-selected="true"] {
+  background-color: transparent;
+  border: 0 ;
+  text-decoration: none;
+}
+
 /*.nav-wrapper a.login {*/
   /*display: inline-block;*/
 /*}*/
@@ -561,17 +567,24 @@ ul {
   text-align: center;
   margin-right: 20px;
   border-radius: 3px;
-  color: #ffffff;
+  color: $text_color;
   opacity: 1;
 }
+
 .register-btn:hover, .register-btn:active {
-  background: #534ff4 !important;
+  background: transparent !important;
   text-decoration: none !important;
 }
 
 @media (min-width: 768px) {
   .register-btn, .register-btn:focus, .register-btn:visited {
     background: $primary_color;
+    color: #ffffff;
+  }
+  .register-btn:hover, .register-btn:active {
+    background: #534ff4 !important;
+
+    text-decoration: none !important;
   }
 }
 
@@ -4651,14 +4664,15 @@ table tr {
 /** NUMBERS*/
 
 .number {
-    margin-right: 10px;
-    border-radius: 30px;
-    padding: 2px;
-    width: 27px;
-    display: inline-block;
-    text-align: center;
-    font-size: 14px;
-    background-color: $brand_color;
+  margin-right: 10px;
+  border-radius: 30px;
+  padding: 2px;
+  width: 27px;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  background-color: $brand_color;
+  font-weight: bold;
 
 }
 
