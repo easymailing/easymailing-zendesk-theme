@@ -1493,8 +1493,8 @@ ul {
 .article-body ul, .article-body ol {
   list-style: none;
   padding-left: 0;
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
+  padding-top: 0;
+  padding-bottom: 1rem;
 }
 
 .article-body ul li {
