@@ -4650,12 +4650,15 @@ table tr {
     }
 }
 
-.no-border table {
+.no-border, table {
   border: 0;
 }
 
-.no-border table td {
+.no-border, table td {
   border-right: 0;
+}
+.no-border, table tr {
+  border-bottom: 0;
 }
 
 
