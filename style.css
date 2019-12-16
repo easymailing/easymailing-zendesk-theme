@@ -1765,7 +1765,7 @@ ul {
 }
 
 .sidenav-item.current-article, .sidenav-item:hover {
-  background-color: rgba(213, 217, 232, 1);
+  background-color: rgba(230, 233, 245, .6);
   /*color: $brand_text_color;*/
   text-decoration: none;
 }
@@ -4610,8 +4610,8 @@ table td {
     vertical-align: top;
 }
 
-table td .gray {
-    background-color: #ddd;
+table td.gray {
+    background-color: rgba(230, 233, 245, .6);
 }
 
 @media (min-width: 768px) {
@@ -4650,14 +4650,14 @@ table tr {
     }
 }
 
-.no-border, table {
+table.no-border {
   border: 0;
 }
 
-.no-border, table td {
+table.no-border td {
   border-right: 0;
 }
-.no-border, table tr {
+table.no-border tr {
   border-bottom: 0;
 }
 
