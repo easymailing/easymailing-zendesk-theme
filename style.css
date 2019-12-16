@@ -4616,55 +4616,56 @@ zd-autocomplete-breadcrumbs-multibrand {
 /** DEFAULT TABLES */
 
 table {
-    width: 100%;
-    border: 1px solid #ddd;
-    table-layout: fixed;
+  width: 100%;
+  border: 1px solid #ddd;
+  table-layout: fixed;
+  font-size: 16px;
 }
 
 table td {
-    padding: 0 20px;
-    border-right: 1px solid #ddd;
-    vertical-align: top;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  vertical-align: top;
 }
 
 table td.gray {
-    background-color: rgba(248, 250, 253, 1);
+  background-color: rgba(248, 250, 253, 1);
 }
 
 @media (min-width: 768px) {
-    table {
-        table-layout: auto;
-    }
+  table {
+    table-layout: auto;
+  }
 }
 
 table th,
 table th a {
-    color: $text_color_gray;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: left;
+  color: $text_color_gray;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: left;
 }
 
 [dir="rtl"] .table th, [dir="rtl"] table th a {
-    text-align: right;
+  text-align: right;
 }
 
 table tr {
-    border-bottom: 1px solid #ddd;
-    display: block;
+  border-bottom: 1px solid #ddd;
+  display: block;
 }
 
 @media (min-width: 768px) {
-    table tr {
-        display: table-row;
-    }
+  table tr {
+    display: table-row;
+  }
 }
 
 @media (max-width: 768px) {
-    table td {
-        display: block;
-        border-right: 0;
-    }
+  table td {
+    display: block;
+    border-right: 0;
+  }
 }
 
 table.no-border {
