@@ -4719,6 +4719,7 @@ table.no-border tr {
   border: 1px solid #D5D9E8;
   background-color: #F8FAFD;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 .content-index p {
   margin: 0;
