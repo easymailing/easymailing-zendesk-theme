@@ -235,3 +235,82 @@ $(document).ready(function () {
     });
 
 });
+
+
+// SHOW ALL ARTICLES IN CATEGORY PAGE
+
+$(document).ready(function(){
+
+    /**
+     @add your hc domain here
+     @for eg: var hc_url = 'https://testcompany.com'
+     */
+    var hc_url = 'https://ayuda.easymailing.com'
+
+    var _allarticles = [],
+        _sorted = [],
+        _artHtml = '',
+        _id,
+        _url;
+
+    var _articles = function(article){
+        $.ajax({
+            url: _url,
+            type: 'GET',
+            dataType: 'json',
+            success: article
+        });
+    };
+
+// function for see all articles button in category
+//     $('.see-all-articles').click(function(e){
+//         e.preventDefault();
+
+    // $('.see-all-articles').attr('href')
+
+        var target = '.see-all-articles'
+        // _id = $(e.target).attr('href').split('/sections/')[1].split('-')[0];
+        _id = $(target).attr('href').split('/sections/')[1].split('-')[0];
+
+        if(typeof HelpCenter.user.locale == 'undefined') {
+            HelpCenter.user.locale = window.location.pathname.replace('/', '').replace('?', '/').split('/')[1];
+        }
+
+        _url = hc_url+'/api/v2/help_center/'+HelpCenter.user.locale+'/sections/'+_id+'/articles.json';
+        console.log(_url)
+        _articles(function(data){
+            _allarticles = data.articles;
+
+            if(data.count>30){
+                for(var i = 1; i<data.page_count; i++){
+                    _url = data.next_page;
+                    _articles(function(data){
+                        _allarticles = _allarticles.concat(data.articles);
+                        _arthtml = '';
+                        $(_allarticles).each(function(idx, itm){
+                            if(itm.draft==true){
+                            } else {
+                                _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted':'article-list-item')+'"><span data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'">★</span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
+                            }
+                        });
+                        $(e.target).parent().find('ul.article-list').html(_arthtml);
+                        $(e.target).hide();
+                    })
+                }
+            } else {
+                _arthtml = '';
+                $(data.articles).each(function(idx, itm){
+                    if(itm.draft==true){
+                    } else {
+                        _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted':'article-list-item')+'"><span data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'">★</span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
+                    }
+                });
+                $(target).parent().find('ul.article-list').html(_arthtml);
+                $(target).hide();
+            }
+
+        });
+    // });
+// function for see all articles button in category ends here
+
+});

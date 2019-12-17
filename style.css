@@ -975,6 +975,7 @@ ul {
 
 .categories {
   margin-top: -140px;
+  margin-bottom: 60px;
 }
 
 .blocks-list {
@@ -1058,7 +1059,7 @@ ul {
 
 .blocks-item-link:focus {
   outline: 0;
-  box-shadow: 0 0 0 3px $brand_color;
+  /*box-shadow: 0 0 0 3px $brand_color;*/
   text-decoration: none;
 }
 
@@ -1129,9 +1130,9 @@ ul {
 
 .promoted-articles-item a {
   display: block;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
   padding: 15px 0;
-  color: $text_color;
+  color: $link_color;
 }
 
 .promoted-articles-item .icon-lock::before {
@@ -1144,7 +1145,7 @@ ul {
 
 @media (min-width: 1024px) {
   .promoted-articles-item:last-child a {
-    border-bottom: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
   }
 }
 
@@ -1298,9 +1299,9 @@ ul {
 }
 
 .section-tree-title {
-  margin-bottom: 0;
-  font-size: 18px;
-  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 22px;
+  font-weight: 400;
 }
 
 .section-tree-title a {
@@ -1317,6 +1318,11 @@ ul {
   font-size: 16px;
   padding: 5px 0;
 }
+.article-list-item .icon-star{
+  position: relative;
+  top: -1px;
+  margin-right: 4px;
+}
 
 .article-list-item a {
   color: $link_color;
@@ -1326,10 +1332,7 @@ ul {
   vertical-align: baseline;
 }
 
-.icon-star::before {
-  color: $brand_color;
-  font-size: 18px;
-}
+
 
 /***** Section pages *****/
 .section-container {
@@ -3636,7 +3639,11 @@ ul {
 }
 
 .icon-star::before {
-  content: "\2605";
+  color: #ffcd05;
+  font-size: 18px;
+  font-family: FontAwesome;
+  content: '\f005';
+
 }
 
 .icon-linkedin::before {
@@ -4610,6 +4617,21 @@ zd-autocomplete-breadcrumbs-multibrand {
 }
 .text-right {
   text-align: right;
+}
+
+.font-size-22 {
+  font-size: 22px !important;
+}
+
+.font-size-18 {
+  font-size: 18px !important;
+}
+
+.font-size-16 {
+  font-size: 16px !important;
+}
+.font-regular {
+  font-weight: 400;
 }
 
 
