@@ -3524,7 +3524,7 @@ ul {
 }
 
 .pagination li {
-  border-radius: 50%;
+  border-radius: 4px;
   height: 40px;
   float: left;
   margin-left: 5px;
@@ -3565,11 +3565,12 @@ ul {
 }
 
 .pagination-current {
-  background-color: $brand_color;
+  background-color: #000C36;
 }
 
 .pagination-current a, .pagination-current span {
-  color: $brand_text_color;
+  color: #ffffff;
+
 }
 
 .pagination-first {

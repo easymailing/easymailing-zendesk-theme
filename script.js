@@ -290,7 +290,7 @@ $(document).ready(function(){
                         $(_allarticles).each(function(idx, itm){
                             if(itm.draft==true){
                             } else {
-                                _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted':'article-list-item')+'"><span data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'">★</span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
+                                _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted article-list-item':'article-list-item')+'"><span class="icon-star" data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'"></span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
                             }
                         });
                         $(e.target).parent().find('ul.article-list').html(_arthtml);
@@ -302,7 +302,7 @@ $(document).ready(function(){
                 $(data.articles).each(function(idx, itm){
                     if(itm.draft==true){
                     } else {
-                        _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted':'article-list-item')+'"><span data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'">★</span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
+                        _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted article-list-item':'article-list-item')+'"><span class="icon-star" data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'"></span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
                     }
                 });
                 $(target).parent().find('ul.article-list').html(_arthtml);
