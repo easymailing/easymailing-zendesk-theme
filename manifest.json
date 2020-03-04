@@ -1,7 +1,7 @@
 {
   "name": "Easymailing",
   "author": "Zendesk",
-  "version": "1.2.33",
+  "version": "1.2.34",
   "api_version": 1,
   "default_locale": "es",
   "settings": [
