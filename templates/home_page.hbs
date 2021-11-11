@@ -15,6 +15,10 @@
             <li class="blocks-item">
               <a href='{{url}}' class="blocks-item-link">
 
+                {{#is name 'Marketing Automation'}}
+                <img src="{{asset 'ico-automation.svg'}}" />
+                {{/is}}
+
                 {{#is name 'Cuenta y configuración'}}
                 <img src="{{asset 'ico-cuenta.svg'}}" />
                 {{/is}}
