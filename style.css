@@ -1310,10 +1310,29 @@ ul {
   color: $text_color;
 }
 
-.section-tree .see-all-articles {
-  display: block;
-  padding: 15px 0;
+.section-tree .see-all-articles-container {
+  display: flex;
 }
+
+.section-tree .see-all-articles {
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #000;
+  color: #000;
+  display: block;
+  padding: 4px 8px;
+  margin-top: 20px;
+}
+
+.section-tree .see-all-articles:hover {
+  text-decoration: none;
+  box-shadow: 0 0 0 2px rgba(118, 115, 246, 1);
+  background-color: rgba(118, 115, 246, 1);
+  color: #fff;
+
+}
+
+
 
 
 .article-list-item {
