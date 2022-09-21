@@ -13,37 +13,38 @@
         {{#each categories}}
           {{#isnt name 'Administración'}}
             <li class="blocks-item">
+            {{ id }}
               <a href='{{url}}' class="blocks-item-link">
 
-                {{#is name 'Marketing Automation'}}
+                {{#is id '4409717909009'}}
                 <img src="{{asset 'ico-automation.svg'}}" />
                 {{/is}}
 
-                {{#is name 'Cuenta y configuración'}}
+                {{#is id '360000406978'}}
                 <img src="{{asset 'ico-cuenta.svg'}}" />
                 {{/is}}
 
-                {{#is name 'Campañas de email'}}
+                {{#is id '360000619497'}}
                 <img src="{{asset 'ico-campanas.svg'}}" />
                 {{/is}}
 
-                {{#is name 'Diseño de plantillas'}}
+                {{#is id '360000407417'}}
                 <img src="{{asset 'ico-editor.svg'}}" />
                 {{/is}}
 
-                {{#is name 'Gestión de contactos'}}
+                {{#is id '360000619797'}}
                 <img src="{{asset 'ico-gestion-contactos.svg'}}" />
                 {{/is}}
 
-                {{#is name 'RGPD'}}
+                {{#is id '360000619817'}}
                 <img src="{{asset 'ico-rgpd.svg'}}" />
                 {{/is}}
 
-                {{#is name 'API e integraciones'}}
+                {{#is id '360000613078'}}
                 <img src="{{asset 'ico-api.svg'}}" />
                 {{/is}}
 
-                <h4 class="blocks-item-title">{{name}}</h4>
+                <h4 class="blocks-item-title">{{name}}  </h4>
                 <p class="blocks-item-description">{{excerpt description}}</p>
               </a>
             </li>
