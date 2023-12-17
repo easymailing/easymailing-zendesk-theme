@@ -998,7 +998,7 @@ ul {
   box-sizing: border-box;
   color: $brand_color;
   display: flex;
-  flex: 1 0 340px;
+  flex: 0 0 calc(33.333% - 30px);
   margin: 0 0 30px;
   max-width: 100%;
   text-align: center;
@@ -1009,8 +1009,15 @@ ul {
 @media (min-width: 768px) {
   .blocks-item {
     margin: 0 15px 30px;
+    flex-basis: calc(50% - 30px);
   }
 }
+@media (max-width: 480px) {
+  .blocks-item {
+    flex-basis: calc(100% - 30px); /* 1 elemento por fila en pantallas pequeñas */
+  }
+}
+
 
 .blocks-item:hover, .blocks-item:focus, .blocks-item:active {
   box-shadow: 0 0 20px rgba(33,33,33,.2);
