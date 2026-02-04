@@ -218,101 +218,333 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // CUSTOM JS ////////////////////////////////////////
 
-
 $(document).ready(function () {
 
+    // Copy code button for pre blocks
+    document.querySelectorAll('.article-body pre, .comment-body pre, .post-body pre').forEach(function(pre) {
+        var wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        var button = document.createElement('button');
+        button.className = 'copy-code-button';
+        button.type = 'button';
+        button.setAttribute('aria-label', 'Copiar código');
+        button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+
+        button.addEventListener('click', function() {
+            var code = pre.querySelector('code') ? pre.querySelector('code').textContent : pre.textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                button.classList.add('copied');
+                setTimeout(function() {
+                    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        });
+
+        wrapper.appendChild(button);
+    });
+
+    // Scroll to anchor (usando delegación para elementos dinámicos)
     function scrollToAnchor(dest) {
         $('html, body').animate({
             scrollTop: $(dest).offset().top - 100
         }, 1000, 'swing');
     }
 
-    $('a[href^="#"]').on('click', function(e) {
+    $(document).on('click', 'a[href^="#"]:not(.heading-anchor)', function(e) {
         e.preventDefault();
         var dest = $(this).attr('href');
         scrollToAnchor(dest);
+    });
 
+    // Heading anchor links
+    var headings = document.querySelectorAll('.article-body h1, .article-body h2, .article-body h3, .article-body h4, .article-body h5, .article-body h6');
+
+    headings.forEach(function(heading) {
+        // Create id from heading text if not exists
+        if (!heading.id) {
+            heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        }
+
+        var link = document.createElement('a');
+        link.className = 'heading-anchor';
+        link.href = '#' + heading.id;
+        link.setAttribute('aria-label', 'Copiar enlace a esta sección');
+        link.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var url = window.location.href.split('#')[0] + '#' + heading.id;
+            navigator.clipboard.writeText(url).then(function() {
+                link.classList.add('copied');
+                setTimeout(function() {
+                    link.classList.remove('copied');
+                }, 2000);
+            });
+        });
+
+        heading.appendChild(link);
+    });
+
+    // Auto-generate table of contents and move to sidebar on desktop
+    var articleBody = document.querySelector('.article-body');
+    var articleSidebar = document.querySelector('.article-sidebar');
+    var existingIndex = document.querySelector('.article-body .content-index');
+
+    if (articleBody && articleSidebar) {
+        var toc = null;
+
+        // Detectar idioma desde la URL (ej: /hc/es/articles/... o /hc/en-us/articles/...)
+        var pathParts = window.location.pathname.split('/');
+        var locale = pathParts[2] || 'es';
+        var tocTitle = locale.startsWith('en') ? 'Table of contents' : 'Índice de contenidos';
+
+        if (existingIndex) {
+            // Si ya existe un índice manual, lo usamos
+            toc = existingIndex;
+
+            // Verificar si tiene título, si no lo tiene, añadirlo
+            var firstChild = toc.firstElementChild;
+            var hasTitle = firstChild && firstChild.tagName === 'P' && !firstChild.querySelector('a');
+            if (!hasTitle) {
+                var titleP = document.createElement('p');
+                titleP.textContent = tocTitle;
+                toc.insertBefore(titleP, toc.firstChild);
+            }
+        } else {
+            // Si no existe, lo generamos desde los H2
+            var h2Headings = document.querySelectorAll('.article-body h2');
+
+            if (h2Headings.length >= 3) {
+                toc = document.createElement('div');
+                toc.className = 'content-index';
+
+                var tocHTML = '<p>' + tocTitle + '</p>';
+                h2Headings.forEach(function(h2, index) {
+                    tocHTML += '<p><a href="#' + h2.id + '">' + (index + 1) + '. ' + h2.textContent.replace(/\s*$/, '') + '</a></p>';
+                });
+
+                toc.innerHTML = tocHTML;
+            }
+        }
+
+        if (toc) {
+            // Crear contenedor para el sidebar
+            var sidebarToc = document.createElement('div');
+            sidebarToc.className = 'sidebar-toc';
+            sidebarToc.appendChild(toc.cloneNode(true));
+
+            // Insertar al principio del sidebar
+            articleSidebar.insertBefore(sidebarToc, articleSidebar.firstChild);
+
+            // Si el índice no existía en el body, lo añadimos también (para móvil)
+            if (!existingIndex) {
+                articleBody.insertBefore(toc, articleBody.firstChild);
+            }
+
+            // Marcar el índice del body para ocultarlo en desktop
+            toc.classList.add('content-index--body');
+
+            // Highlight current section in sidebar TOC on scroll
+            var tocLinks = sidebarToc.querySelectorAll('a[href^="#"]');
+            var headingIds = [];
+            tocLinks.forEach(function(link) {
+                var id = link.getAttribute('href').substring(1);
+                if (id) headingIds.push(id);
+            });
+
+            function highlightCurrentSection() {
+                var scrollPos = window.scrollY + 150;
+                var currentId = null;
+
+                headingIds.forEach(function(id) {
+                    var heading = document.getElementById(id);
+                    if (heading && heading.offsetTop <= scrollPos) {
+                        currentId = id;
+                    }
+                });
+
+                tocLinks.forEach(function(link) {
+                    var linkId = link.getAttribute('href').substring(1);
+                    if (linkId === currentId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightCurrentSection);
+            highlightCurrentSection();
+        }
+    }
+
+    // Back to top button
+    var backToTopButton = document.createElement('button');
+    backToTopButton.className = 'back-to-top';
+    backToTopButton.type = 'button';
+    backToTopButton.setAttribute('aria-label', 'Volver arriba');
+    backToTopButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+    document.body.appendChild(backToTopButton);
+
+    // Centrar el botón respecto al artículo y detenerlo antes del footer
+    var articleElement = document.querySelector('article.article');
+    var footerElement = document.querySelector('footer.footer');
+    var buttonHeight = 44;
+    var buttonMargin = 30;
+
+    function positionBackToTop() {
+        if (articleElement) {
+            var rect = articleElement.getBoundingClientRect();
+            var centerX = rect.left + (rect.width / 2);
+            backToTopButton.style.left = centerX + 'px';
+
+            // Calcular si el botón debe detenerse antes del footer
+            var stopPoint = footerElement ? footerElement.offsetTop : (articleElement.offsetTop + articleElement.offsetHeight);
+            var scrollTop = window.scrollY;
+            var windowHeight = window.innerHeight;
+            var buttonFixedBottom = scrollTop + windowHeight - buttonMargin;
+
+            if (buttonFixedBottom > stopPoint - buttonHeight + 10) {
+                // El botón llegaría al footer, lo detenemos
+                backToTopButton.style.position = 'absolute';
+                backToTopButton.style.bottom = 'auto';
+                backToTopButton.style.top = (stopPoint - buttonHeight - buttonMargin + 10) + 'px';
+            } else {
+                // El botón puede seguir fijo
+                backToTopButton.style.position = 'fixed';
+                backToTopButton.style.bottom = buttonMargin + 'px';
+                backToTopButton.style.top = 'auto';
+            }
+        }
+    }
+    positionBackToTop();
+    window.addEventListener('resize', positionBackToTop);
+    window.addEventListener('scroll', positionBackToTop);
+
+    backToTopButton.addEventListener('click', function() {
+        $('html, body').animate({ scrollTop: 0 }, 500, 'swing');
+    });
+
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
     });
 
 });
 
 
-// SHOW ALL ARTICLES IN CATEGORY PAGE
+// SHOW ALL ARTICLES IN CATEGORY PAGE - Auto load all articles
 
 $(document).ready(function(){
 
-    /**
-     @add your hc domain here
-     @for eg: var hc_url = 'https://testcompany.com'
-     */
-    var hc_url = 'https://ayuda.easymailing.com'
+    var hc_url = 'https://ayuda.easymailing.com';
 
-    var _allarticles = [],
-        _sorted = [],
-        _artHtml = '',
-        _id,
-        _url;
+    // Find all "see all articles" links and load all articles automatically
+    $('.see-all-articles').each(function() {
+        var $link = $(this);
+        var $container = $link.closest('.see-all-articles-container');
+        var $section = $link.closest('.section');
+        var $articleList = $section.find('ul.article-list');
 
-    var _articles = function(article){
+        var href = $link.attr('href');
+        if (!href) return;
+
+        var sectionId = href.split('/sections/')[1];
+        if (sectionId) {
+            sectionId = sectionId.split('-')[0];
+        } else {
+            return;
+        }
+
+        var locale = 'es';
+        if (typeof HelpCenter !== 'undefined' && HelpCenter.user && HelpCenter.user.locale) {
+            locale = HelpCenter.user.locale;
+        } else {
+            var pathParts = window.location.pathname.split('/');
+            if (pathParts[2]) locale = pathParts[2];
+        }
+
+        var apiUrl = hc_url + '/api/v2/help_center/' + locale + '/sections/' + sectionId + '/articles.json?per_page=100';
+
+        // Hide the "see all" button immediately
+        $container.hide();
+
+        // Fetch all articles
         $.ajax({
-            url: _url,
+            url: apiUrl,
             type: 'GET',
             dataType: 'json',
-            success: article
+            success: function(data) {
+                if (data.articles && data.articles.length > 0) {
+                    var articlesHtml = '';
+                    data.articles.forEach(function(article) {
+                        if (!article.draft) {
+                            var promotedClass = article.promoted ? 'article-promoted article-list-item' : 'article-list-item';
+                            var starIcon = article.promoted ? '<span class="icon-star" data-title="Promoted article"></span>' : '';
+                            articlesHtml += '<li class="' + promotedClass + '"><a href="' + article.html_url + '">' + article.title + starIcon + '</a></li>';
+                        }
+                    });
+                    $articleList.html(articlesHtml);
+                }
+            }
         });
-    };
+    });
 
-// function for see all articles button in category
-//     $('.see-all-articles').click(function(e){
-//         e.preventDefault();
+});
 
-    // $('.see-all-articles').attr('href')
 
-        // var target = '.see-all-articles'
-        // // _id = $(e.target).attr('href').split('/sections/')[1].split('-')[0];
-        // _id = $(target).attr('href').split('/sections/')[1].split('-')[0];
-        //
-        // if(typeof HelpCenter.user.locale == 'undefined') {
-        //     HelpCenter.user.locale = window.location.pathname.replace('/', '').replace('?', '/').split('/')[1];
-        // }
-        //
-        // _url = hc_url+'/api/v2/help_center/'+HelpCenter.user.locale+'/sections/'+_id+'/articles.json';
-        //
-        // _articles(function(data){
-        //     _allarticles = data.articles;
-        //     console.log(data)
-        //     if(data.count>30){
-        //         for(var i = 1; i<data.page_count; i++){
-        //             _url = data.next_page;
-        //             _articles(function(data){
-        //
-        //                 _allarticles = _allarticles.concat(data.articles);
-        //                 _arthtml = '';
-        //                 $(_allarticles).each(function(idx, itm){
-        //
-        //                     if(itm.draft==true){
-        //                     } else {
-        //                         _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted article-list-item':'article-list-item')+'"><span class="icon-star" data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'"></span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
-        //                     }
-        //                 });
-        //                 $(e.target).parent().find('ul.article-list').html(_arthtml);
-        //                 $(e.target).hide();
-        //             })
-        //         }
-        //     } else {
-        //         _arthtml = '';
-        //         $(data.articles).each(function(idx, itm){
-        //             if(itm.draft==true){
-        //             } else {
-        //                 _arthtml = _arthtml + '<li class="'+(itm.promoted==true?'article-promoted article-list-item':'article-list-item')+'"><span class="icon-star" data-title="Promoted article" style="'+(itm.promoted==false?'display:none':'')+'"></span><a href="'+itm.html_url+'">'+itm.title+'</a></li>';
-        //             }
-        //         });
-        //         $(target).parent().find('ul.article-list').html(_arthtml);
-        //         $(target).hide();
-        //     }
-        //
-        // });
-    // });
-// function for see all articles button in category ends here
+// Categories dropdown in header
+$(document).ready(function() {
+    var $dropdown = $('.categories-dropdown');
+    var $toggle = $('.categories-dropdown-toggle');
+    var $menu = $('.categories-dropdown-menu');
+    var hc_url = 'https://ayuda.easymailing.com';
 
+    // Detect locale from URL
+    var pathParts = window.location.pathname.split('/');
+    var locale = pathParts[2] || 'es';
+
+    // Load categories via API
+    $.ajax({
+        url: hc_url + '/api/v2/help_center/' + locale + '/categories.json',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if (data.categories && data.categories.length > 0) {
+                var categoriesHtml = '';
+                data.categories.forEach(function(category) {
+                    categoriesHtml += '<a href="' + category.html_url + '">' + category.name + '</a>';
+                });
+                $menu.html(categoriesHtml);
+            }
+        }
+    });
+
+    $toggle.on('click', function(e) {
+        e.stopPropagation();
+        var isExpanded = $dropdown.attr('aria-expanded') === 'true';
+        $dropdown.attr('aria-expanded', !isExpanded);
+    });
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.categories-dropdown').length) {
+            $dropdown.attr('aria-expanded', 'false');
+        }
+    });
+
+    // Close dropdown on escape key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            $dropdown.attr('aria-expanded', 'false');
+        }
+    });
 });

@@ -1,12 +1,25 @@
 <header class="header">
   <div class="logo">
 
-      <a href="https://easymailing.com"> <img src="{{asset 'logo-easymailing.svg'}}" alt="{{t 'home_page' name=help_center.name}}"></a>
+      {{#link 'help_center'}}<img src="{{asset 'logo-easymailing.svg'}}" alt="{{t 'home_page' name=help_center.name}}">{{/link}}
       <div class="vertical-separator"></div>
     {{#link 'help_center' class='link-white'}}
       <div class="header-title">{{dc 'theme_help'}}</div>
     {{/link}}
   </div>
+  <nav class="header-nav-center">
+    <div class="categories-dropdown">
+      <button class="categories-dropdown-toggle" aria-expanded="false">
+        Categorías
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="categories-dropdown-menu">
+        <!-- Categories loaded via JavaScript -->
+      </div>
+    </div>
+    {{link 'community'}}
+    {{link 'new_request' class='submit-a-request'}}
+  </nav>
   <div class="nav-wrapper">
     <button class="menu-button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-menu">
@@ -14,8 +27,8 @@
       </svg>
     </button>
     <nav class="user-nav" id="user-nav">
-        {{link 'community'}}
-        {{link 'new_request' class='submit-a-request'}}
+        {{link 'community' class='mobile-only'}}
+        {{link 'new_request' class='submit-a-request mobile-only'}}
         {{#if signed_in}}
         {{else}}
             <a class="register-btn" href="https://easymailing.com/signup">{{dc 'theme_register'}}</a>
