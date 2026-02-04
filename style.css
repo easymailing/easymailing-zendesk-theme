@@ -1070,7 +1070,7 @@ ul {
 
 /***** Hero component *****/
 .hero {
-  background-image: url("$homepage_background_image");
+  background-image: url("bg-base-conocimiento.svg");
   background-position: center;
   background-size: cover;
   height: 500px;
